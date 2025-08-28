@@ -1,0 +1,6 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Proyectos desarrollados utilizando {{portafolioService.getTitleByTechnology(query())}}</h2>
+  @for (projectCard of projectCardList; track projectCard.siteUrl) {
+  <app-project-card [projectCard]="projectCard"></app-project-card>
+  }
+</div>
