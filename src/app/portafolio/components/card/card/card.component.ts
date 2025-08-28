@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Card } from '../../../interfaces/card.interface';
+import { Technology } from '../../../interfaces/technology.interface';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,5 +8,5 @@ import { RouterLink } from '@angular/router';
   templateUrl: './card.component.html'
 })
 export class CardComponent {
-  card = input.required<Card>();
+  card = input.required<Technology>();
 }

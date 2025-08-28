@@ -1,4 +1,4 @@
-export interface Card {
+export interface Technology {
   title: string;
   description: string;
   imgUrl: string;

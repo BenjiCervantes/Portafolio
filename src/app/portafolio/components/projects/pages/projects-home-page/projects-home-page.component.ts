@@ -10,5 +10,5 @@ import { PortafolioService } from '../../../../services/portafolio.service';
 })
 export default class ProjectsHomePageComponent {
   portafolioService = inject(PortafolioService);
-  cardList = this.portafolioService.getTechonlogyCardList();
+  cardList = this.portafolioService.getTechonlogyList();
 }

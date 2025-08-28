@@ -1,13 +1,13 @@
 import { Injectable, signal } from "@angular/core";
-import { ProjectCard } from "../interfaces/projectCard.interface";
-import { Card } from "../interfaces/card.interface";
+import { Project as Project } from "../interfaces/project.interface";
+import { Technology as Technology } from "../interfaces/technology.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortafolioService {
 
-  private technologyCardList = signal<Card[]>([
+  private technologyList = signal<Technology[]>([
     {
       title: 'Angular',
       description: 'Proytectos creados utilizando el Framework Angular ',
@@ -27,7 +27,7 @@ export class PortafolioService {
       description: 'Proytectos creados utilizando .Net Framework ',
       imgUrl: 'netframework-logo.png',
       technology: 'net_framework',
-      isVisible: false
+      isVisible: true
     },
     {
       title: 'NET Core',
@@ -45,7 +45,7 @@ export class PortafolioService {
     },
   ]);
 
-  private projectCardList = signal<ProjectCard[]>([
+  private projectList = signal<Project[]>([
     {
       title: 'GifsApp',
       description: 'Aplicación web desarrollada para la búsqueda de Gifs utilizando el api de Giphy',
@@ -61,22 +61,31 @@ export class PortafolioService {
       siteUrl: 'https://front-end-store-bbautista.netlify.app/',
       technologies: 'HTML5, Bootstrap',
       parentTechnology: 'html'
-    }
+    },
+    {
+      title: 'Dottie',
+      description: 'Aplicación web para administar documentos fiscales emitidos como facturas, notas de crédito, notas de débito. ',
+      imgUrl: 'FrontEndStore.png',
+      technologies: 'NET Framework, Dapper, SQL Server, APIs Restful, Inyección de dependencias, HTML, CSS, Bootstrap, Javascript, JQuery, Razor, Telerik',
+      parentTechnology: 'net_framework'
+    },
   ]);
 
-  getProjectsByParentTechnology = (technology: string): ProjectCard[] => {
-    return this.projectCardList().filter(project => project.parentTechnology === technology.trim().toLowerCase());
+  getProjectsByParentTechnology = (technology: string): Project[] => {
+    console.log(technology);
+    console.log(this.projectList().filter(project => project.parentTechnology === technology.trim().toLowerCase()));
+    return this.projectList().filter(project => project.parentTechnology === technology.trim().toLowerCase());
   }
 
-  getTechnologyCardByName = (name: string): Card => {
-    return this.technologyCardList().filter(t => t.technology === name)[0];
+  getTechnologyByName = (name: string): Technology => {
+    return this.technologyList().filter(t => t.technology === name)[0];
   }
 
   getTitleByTechnology = (technology: string): string => {
-    return this.technologyCardList().filter(t => t.technology === technology)[0].title;
+    return this.technologyList().filter(t => t.technology === technology)[0].title;
   }
 
-  getTechonlogyCardList = () => {
-    return this.technologyCardList().filter(t => t.isVisible);
+  getTechonlogyList = () => {
+    return this.technologyList().filter(t => t.isVisible);
   }
 }

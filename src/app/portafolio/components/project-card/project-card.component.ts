@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { ProjectCard } from '../../interfaces/projectCard.interface';
+import { Project } from '../../interfaces/project.interface';
 
 @Component({
   selector: 'app-project-card',
@@ -7,5 +7,5 @@ import { ProjectCard } from '../../interfaces/projectCard.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
-  projectCard = input.required<ProjectCard>();
+  projectCard = input.required<Project>();
 }

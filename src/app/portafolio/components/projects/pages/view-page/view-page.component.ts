@@ -11,6 +11,7 @@ import { map } from 'rxjs';
   templateUrl: './view-page.component.html'
 })
 export default class ViewPageComponent {
+
   portafolioService = inject(PortafolioService);
 
   query = toSignal(inject(ActivatedRoute).params.pipe(map(params => params['query'])));

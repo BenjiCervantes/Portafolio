@@ -1,8 +1,8 @@
-export interface ProjectCard {
+export interface Project {
   title: string;
   description: string;
   imgUrl: string;
-  siteUrl: string;
+  siteUrl?: string;
   technologies: string;
   parentTechnology: string;
 }
